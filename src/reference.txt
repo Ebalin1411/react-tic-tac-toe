@@ -1,0 +1,9 @@
+https://reactjs.org/docs/rendering-elements.html 
+https://reactjs.org/tutorial/tutorial.html#setup-option-2-local-development-environment
+
+
+
+..........TS react https://www.youtube.com/playlist?list=PLC3y8-rFHvwi1AXijGTKM0BKtHzVC-LSK
+
+TS
+https://www.youtube.com/watch?v=k0hSJdTfXNM&list=PL699Xf-_ilW5VXRsJwBJLmDGrsrYxBjQT
