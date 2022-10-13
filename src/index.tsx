@@ -3,35 +3,54 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 
-
-
+//Functional Component for Square
 interface SquareProps {
   value: string;
   onClick: Function;
+  
 }
-const Square = (props: SquareProps) => (
-  <button className="square" onClick={() => props.onClick()}>
-    {props.value}
-  </button>
+ 
+
+
+const Square = (props: SquareProps) => ( 
+    <button className="square" onClick={() => props.onClick()}>
+      {props.value}
+    </button>
+   
 );
+
+ 
+
+
+
+// Code For Board
 
 interface BoardState {
   grid: Array<string>;
+  xIsNext :boolean
 }
+// Board Class
 class Board extends React.Component<{}, BoardState> {
   constructor(props:SquareProps) {
     super(props);
     this.state = {
       grid: Array(9).fill(null),
+      xIsNext :true
     };
   }
 
   handleClick(index: number) {
     console.log('Handle click in board for ', index);
-    const newGrid = [...this.state.grid];
-    newGrid[index] = 'X';
+
+    const newGrid = [...this.state.grid];     
+    newGrid[index] = this.state.xIsNext ? 'X' :'O';
+    
+    console.log(newGrid)
     this.setState({
+
       grid: newGrid,
+      xIsNext:!this.state.xIsNext,
+
     });
   }
 
@@ -42,7 +61,7 @@ class Board extends React.Component<{}, BoardState> {
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = 'Next player: ' + (this.state.xIsNext ? 'X':'O');
 
     return (
       <div>
