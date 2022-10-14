@@ -20,9 +20,18 @@ const Square = (props: SquareProps) => (
 interface BoardState {
   grid: Array<string>;
   xIsNext :boolean
-  newGrid: Array<string>;
+  newGrid: Array<string>;  
+}
+
+interface GameState {
+  // grid: Array<string>;
+  // xIsNext :boolean
+  // newGrid: Array<string>; 
+  history: Array<string>;
   
 }
+
+
 // Board Class
 class Board extends React.Component<{}, BoardState> {
   constructor(props:SquareProps) {
@@ -63,7 +72,7 @@ class Board extends React.Component<{}, BoardState> {
         
         if(winner){         
           status ='Winner: ' + winner;   
-          console.log('game status if winner combi is there :' +status) 
+          console.log('game status if winnes :' +status) 
             
         }else{                      
           status = 'Next player: ' +  (this.state.xIsNext ? 'X':'O');  
@@ -95,7 +104,18 @@ class Board extends React.Component<{}, BoardState> {
   }
 }
 
-class Game extends React.Component {
+class Game extends React.Component <{}, GameState>{
+ constructor(props:SquareProps){
+  super(props);
+  this.state = {
+    history:[
+      grid: Array(9).fill(null);      
+    ],
+    xIsNext: true,
+  }
+ }
+
+
   render() {
     return (
       <div className="game">
@@ -135,6 +155,5 @@ const lines= [
                 return newGrid[a];          
             }
     } return null;
-
    
 }
