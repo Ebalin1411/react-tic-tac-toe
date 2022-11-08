@@ -12,6 +12,7 @@
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "env-cmd": "^10.1.0",
+    "gh": "^2.8.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -20,12 +21,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploye": "npm run build",
-    "deploy": "gh-pages -b master -d build",
     "build": "react-scripts build",
-    "build:staging": "env-cmd -f .env.staging npm run build",
+   
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
